@@ -12,6 +12,7 @@ Build docker image(s)
 ```sh
 docker build -t phluent/clang:latest -f clang/latest/Dockerfile .
 docker build -t phluent/python:latest -f python/latest/Dockerfile .
+docker build -t phluent/javascript:latest -f javascript/latest/Dockerfile .
 ```
 
 Run docker container(s)
@@ -22,12 +23,16 @@ cat clang/latest/tests/cpp_hello_world/payload.json | docker run --rm -i phluent
 
 cat python/latest/tests/hello_world/payload.json | docker run --rm -i phluent/python
 cat python/latest/tests/hello_world/payload.json | docker run --rm -i phluent/python -stream
+
+cat javascript/latest/tests/hello_world/payload.json | docker run --rm -i phluent/javascript
+cat javascript/latest/tests/hello_world/payload.json | docker run --rm -i phluent/javascript -stream
 ```
 
 Push docker container(s)
 ```sh
 docker push phluent/clang
 docker push phluent/python
+docker push phluent/javascript
 ```
 
 ## Original README
