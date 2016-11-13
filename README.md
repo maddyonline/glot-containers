@@ -2,6 +2,8 @@ fluent-containers -- a fork of glot-containers
 ===============
 ## Fork of https://github.com/prasmussen/glot-containers
 
+## Using following binary instead: https://github.com/maddyonline/fluent
+
 Build binary for linux
 ```sh
 docker run --rm -it -v $PWD/files:/go/bin/linux_386 -e GOPATH=/go -w /go/src/app -e GOOS=linux -e GOARCH=386 golang go get -v github.com/maddyonline/fluent
