@@ -9,8 +9,8 @@ https://hub.docker.com/r/phluent
 
 Build binary for linux
 ```sh
-docker run --rm -it -v $PWD/files:/go/bin/linux_386 -e GOPATH=/go -w /go/src/app -e GOOS=linux -e GOARCH=386 golang go get -v github.com/maddyonline/fluent
-mv files/fluent files/runner
+docker run --rm -it -v $PWD/files:/go/bin/linux_386 -e GOPATH=/go -w /go/src/app -e GOOS=linux -e GOARCH=386 golang go get -u -v github.com/maddyonline/glot-code-runner
+mv files/glot-code-runner files/runner
 ```
 
 Build docker image(s)
@@ -18,6 +18,7 @@ Build docker image(s)
 docker build -t phluent/clang:latest -f clang/latest/Dockerfile .
 docker build -t phluent/python:latest -f python/latest/Dockerfile .
 docker build -t phluent/javascript:latest -f javascript/latest/Dockerfile .
+docker build -t phluent/typescript:latest -f typescript/latest/Dockerfile .
 ```
 
 Run docker container(s)
@@ -31,6 +32,9 @@ cat python/latest/tests/hello_world/payload.json | docker run --rm -i phluent/py
 
 cat javascript/latest/tests/hello_world/payload.json | docker run --rm -i phluent/javascript
 cat javascript/latest/tests/hello_world/payload.json | docker run --rm -i phluent/javascript -stream
+
+cat typescript/latest/tests/hello_world/payload.json | docker run --rm -i phluent/typescript
+cat typescript/latest/tests/hello_world/payload.json | docker run --rm -i phluent/typescript -stream
 ```
 
 Push docker container(s)
@@ -38,6 +42,7 @@ Push docker container(s)
 docker push phluent/clang
 docker push phluent/python
 docker push phluent/javascript
+docker push phluent/typescript
 ```
 
 ## Original README
